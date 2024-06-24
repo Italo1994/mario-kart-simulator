@@ -18,6 +18,9 @@ async function rollDice() {
     return Math.floor(Math.random() * 6) + 1;
 }
 
+async function playRaceEngine(character1, character2) {
+
+}
 
 (
     async function main() {
