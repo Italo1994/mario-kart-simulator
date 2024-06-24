@@ -14,3 +14,12 @@ const PLAYER2 = {
     POINTS: 0
 };
 
+(
+    async function main() {
+        console.log(
+            `Corrida entre ${PLAYER1.NAME} e ${PLAYER2.NAME} começando...`
+        );
+        
+        await playRaceEngine(PLAYER1, PLAYER2);
+    }
+)();
