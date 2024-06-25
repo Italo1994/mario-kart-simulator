@@ -42,6 +42,8 @@ async function playRaceEngine(character1, character2) {
         console.log(`Rodada ${round}`);
 
         // sortear bloco
+        let block = await getRandomBlock();
+        console.log(`Bloco: ${block}`);
     }
 }
 
