@@ -41,9 +41,17 @@ async function playRaceEngine(character1, character2) {
     for(let round=1; round<=5; round++) {
         console.log(`Rodada ${round}`);
 
-        // sortear bloco
+        // draw the block
         let block = await getRandomBlock();
         console.log(`Bloco: ${block}`);
+
+        // roll the dice
+        let diceResult1 = await rollDice();
+        let diceResult2 = await rollDice();
+
+        // test of skills
+        let totalTestSkill1 = 0;
+        let totalTestSkill2 = 0;
     }
 }
 
