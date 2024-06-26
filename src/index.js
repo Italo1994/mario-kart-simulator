@@ -52,6 +52,28 @@ async function playRaceEngine(character1, character2) {
         // test of skills
         let totalTestSkill1 = 0;
         let totalTestSkill2 = 0;
+
+        if(block == "RETA") {
+            totalTestSkill1 = diceResult1 + character1.SPEED;
+            totalTestSkill2 = diceResult2 + character2.SPEED;
+
+            console.log(`${PLAYER1.NAME} rolou um dado de ${block} ${diceResult1}`);
+            console.log(`${PLAYER2.NAME} rolou um dado de ${block} ${diceResult2}`);
+        }
+        else if(block == "CURVA") {
+            totalTestSkill1 = diceResult1 + character1.MANEUVERABILITY;
+            totalTestSkill2 = diceResult2 + character2.MANEUVERABILITY;
+
+            console.log(`${PLAYER1.NAME} rolou um dado de ${block} ${diceResult1}`);
+            console.log(`${PLAYER2.NAME} rolou um dado de ${block} ${diceResult2}`);
+        }
+        else if(block == "CONFRONTO") {
+            let powerResult1 = diceResult1 + character1.POWER;
+            let powerResult2 = diceResult2 + character2.POWER;
+
+            console.log(`${PLAYER1.NAME} rolou um dado de ${block} ${diceResult1}`);
+            console.log(`${PLAYER2.NAME} rolou um dado de ${block} ${diceResult2}`);
+        }
     }
 }
 
