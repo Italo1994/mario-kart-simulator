@@ -37,6 +37,10 @@ async function getRandomBlock() {
     return result;
 }
 
+async function logRollResult(characterName, block, diceResult, attribute) {
+    console.log(`${characterName} rolou um dado de ${block} ${diceResult} + ${attribute} = ${diceResult + attribute}`);
+}
+
 async function playRaceEngine(character1, character2) {
     for(let round=1; round<=5; round++) {
         console.log(`Rodada ${round}`);
@@ -44,6 +48,7 @@ async function playRaceEngine(character1, character2) {
         // draw the block
         let block = await getRandomBlock();
         console.log(`Bloco: ${block}`);
+    
 
         // roll the dice
         let diceResult1 = await rollDice();
@@ -57,22 +62,22 @@ async function playRaceEngine(character1, character2) {
             totalTestSkill1 = diceResult1 + character1.SPEED;
             totalTestSkill2 = diceResult2 + character2.SPEED;
 
-            console.log(`${PLAYER1.NAME} rolou um dado de ${block} ${diceResult1}`);
-            console.log(`${PLAYER2.NAME} rolou um dado de ${block} ${diceResult2}`);
+            await logRollResult(character1.NAME, "VELOCIDADE", diceResult1, character1.SPEED);
+            await logRollResult(character2.NAME, "VELOCIDADE", diceResult2, character2.SPEED);
         }
         else if(block == "CURVA") {
             totalTestSkill1 = diceResult1 + character1.MANEUVERABILITY;
             totalTestSkill2 = diceResult2 + character2.MANEUVERABILITY;
 
-            console.log(`${PLAYER1.NAME} rolou um dado de ${block} ${diceResult1}`);
-            console.log(`${PLAYER2.NAME} rolou um dado de ${block} ${diceResult2}`);
+            await logRollResult(character1.NAME, "MANOBRABILIDADE", diceResult1, character1.MANEUVERABILITY);
+            await logRollResult(character2.NAME, "MANOBRABILIDADE", diceResult2, character2.MANEUVERABILITY);
         }
         else if(block == "CONFRONTO") {
             let powerResult1 = diceResult1 + character1.POWER;
             let powerResult2 = diceResult2 + character2.POWER;
 
-            console.log(`${PLAYER1.NAME} rolou um dado de ${block} ${diceResult1}`);
-            console.log(`${PLAYER2.NAME} rolou um dado de ${block} ${diceResult2}`);
+            await logRollResult(character1.NAME, "PODER", diceResult1, character1.POWER);
+            await logRollResult(character2.NAME, "PODER", diceResult2, character2.POWER);
         }
     }
 }
