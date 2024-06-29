@@ -81,12 +81,14 @@ async function playRaceEngine(character1, character2) {
 
             console.log(`${character1.NAME} confrontou com ${character2.NAME}`);
 
-            character2.POINTS -= powerResult1 > powerResult2 && character2.POINTS > 0 ? 1 : 0;
-
-            character1.POINTS -= powerResult2 > powerResult1 && character1.POINTS > 0 ? 1 : 0;
+            if(powerResult1 > powerResult2 && character2.POINTS > 0) {
+                console.log(`${character1.NOME} venceu o confronto! ${character2} perdeu 1 ponto.`);
+                character2.POINTS--;
+            } else if(powerResult2 > powerResult1 && character1.POINTS > 0) {
+                console.log(`${character2.NOME} venceu o confronto! ${character1} perdeu 1 ponto.`);
+            }
 
             console.log(powerResult1 === powerResult2 ? "Confronto empatado! Nenhum ponto foi perdido." : "");
-
         }
 
         // verifying the winner
